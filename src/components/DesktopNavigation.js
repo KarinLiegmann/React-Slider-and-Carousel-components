@@ -10,8 +10,8 @@ function DesktopNavigation() {
                 <NavLink activeClassName="active" className="link" to="/standard-slider">
                     Standard Slider
                 </NavLink>
-                <NavLink activeClassName="active" className="link" to="/carousel">
-                    Carousel
+                <NavLink activeClassName="active" className="link" to="/animated-card">
+                    Animated Card
                 </NavLink>
             </nav>
         </header>

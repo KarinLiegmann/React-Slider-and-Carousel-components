@@ -28,7 +28,7 @@ const ImageSlider = ({ slides }) => {
                     <div className={index === currentImage ? 'slide active' : 'slide'} key={index}>
                         {index === currentImage && (<div>
                             <img src={slide.image} alt="cat" className="image" />
-                            <p className="credit">Photo by <a href={slide.credit} target="_blank">{slide.author}</a> on <a href="https://unsplash.com/s/photos/cat?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a>
+                            <p className="credit">Photo by <a href={slide.credit} target="_blank" rel="noreferrer noopener">{slide.author}</a> on <a href="https://unsplash.com/s/photos/cat?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank" rel="noreferrer noopener">Unsplash</a>
                             </p>
                         </div>)}
                     </div>

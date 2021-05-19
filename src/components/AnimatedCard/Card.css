@@ -1,0 +1,143 @@
+:root {
+    --clr-neutral-900: hsl(207, 19%, 9%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+    --clr-accent-400: hsl(142, 90%, 61%);
+}
+
+*,
+*::before,
+*::after {
+    background-origin: border-box;
+}
+
+.animated-card-page {
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    line-height: 1.6;
+    background: hsl(207, 20%, 13%);
+}
+
+.card {
+    color: var(--clr-neutral-100);
+    background-image: url(../../assets/filipp-romanovski-SjXi35ffrJg-unsplash.jpg);
+    background-size: contain;
+    padding: 10rem 0 0;
+    max-width: 35ch; /*'ch'-unit is relative to the width of the 0 character. 'ch' is short for 'character'*/
+    border-radius: .5rem;
+    overflow: hidden; /*hides the card-body, but careful when using the tab-button, because it is forcing anythig in focus into view*/
+    transition: transform 500ms ease-in-out;
+}
+
+.card:hover,
+.card:focus-within {
+    transform: scale(1.05);
+}
+
+.card-content {
+    --padding: 1.5rem;
+    padding: var(--padding);
+    background: linear-gradient(
+        hsla(0, 0%, 0%, 0),
+        hsla(0, 0%, 0%, .2) 20%,
+        hsla(0, 50%, 0%, 1)
+        );        
+}
+
+.card-title {
+    position: relative;
+    width: max-content; /*only works with oneliners, otherwise it breaks the styling. max-width: 100% would prevent any overflow of longer text*/
+}
+
+.card-title::after
+ {
+    content: '';
+    position: absolute;
+    height: 4px;
+    left: calc(var(--padding) * -1);
+    bottom: -2px;
+    width: calc(100% + var(--padding));
+    background: var(--clr-accent-400);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms ease; 
+}
+
+.card:hover .card-title::after,
+.card:focus-within .card-title::after {
+    transform: scaleX(1); /*horizontal*/
+}
+
+.card-body {
+    color: rgba(255, 255, 255, 0.8)
+}
+
+.button {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--clr-neutral-900);
+    background-color: var(--clr-accent-400);
+    padding: .3em 1.1em;
+    border-radius: .25em;
+}
+
+.button:hover,
+.button:focus {
+    background-color: var(--clr-neutral-100);
+}
+
+.card-credit {
+    font-size: .7rem;
+    margin-left: .5rem;
+    margin-bottom: 1rem;
+}
+
+.card-credit a {
+    color: var(--clr-accent-400);
+    text-decoration: none;
+}
+
+@media (hover) { /*only works on devices that have a hover-function*/
+    .card-content {
+        transform: translateY(70%);
+        transition: transform 500ms ease;
+    }
+
+    .card:hover .card-content,
+    .card:focus-within .card-content {
+    transform: translateY(0);
+    transition-delay: 500ms; /*delay only happens on hover, but not when we remove cursor*/
+    }
+
+    .card:focus-within .card-content {
+    transition-duration: 0ms; /*cancels out transition-problems when using tab-button, especially apparent in firefox-browser*/
+    }
+
+    .card-content > *:not(.card-title) {
+    opacity: 0;
+    transition: opacity 500ms linear;
+    }
+
+    .card:hover .card-content > *:not(.card-title),
+    .card:focus-within .card-content > *:not(.card-title) {
+    opacity: 1;
+    transition-delay: 900ms;
+    }
+
+    .card-title::after {
+        transform: scaleX(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+        transition-delay: 0ms !important;
+    }
+}

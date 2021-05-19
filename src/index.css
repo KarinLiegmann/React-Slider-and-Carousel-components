@@ -35,7 +35,8 @@ code {
   }
 }
 
-.preview-image:hover {
+.preview-image:hover,
+.preview-image:focus-within {
   box-shadow: 4px 5px 15px #D3D3D3;
   cursor: pointer;
   opacity: 1;
