@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.home {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.preview-image {
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;  
+  transition: 1s ease-in-out;
+  width: 80vw;
+  max-width: 400px;
+  min-width: 300px;
+}
+
+@media screen and (min-width: 1024px) {
+  .preview-image {
+    opacity: 0.5;
+  }
+}
+
+.preview-image:hover {
+  box-shadow: 4px 5px 15px #D3D3D3;
+  cursor: pointer;
+  opacity: 1;
+  transform: scale(1.08);
+}

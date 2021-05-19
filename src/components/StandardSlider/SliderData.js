@@ -1,8 +1,8 @@
-import img1 from '../assets/karina-vorozheeva-rW-I87aPY5Y-unsplash.jpg';
-import img2 from '../assets/max-baskakov-OzAeZPNsLXk-unsplash.jpg';
-import img3 from '../assets/mikhail-vasilyev-NodtnCsLdTE-unsplash.jpg';
-import img4 from '../assets/paul-hanaoka-w2DsS-ZAP4U-unsplash.jpg';
-import img5 from '../assets/yerlin-matu-GtwiBmtJvaU-unsplash.jpg';
+import img1 from '../../assets/karina-vorozheeva-rW-I87aPY5Y-unsplash.jpg';
+import img2 from '../../assets/max-baskakov-OzAeZPNsLXk-unsplash.jpg';
+import img3 from '../../assets/mikhail-vasilyev-NodtnCsLdTE-unsplash.jpg';
+import img4 from '../../assets/paul-hanaoka-w2DsS-ZAP4U-unsplash.jpg';
+import img5 from '../../assets/yerlin-matu-GtwiBmtJvaU-unsplash.jpg';
 
 export const SliderData = [
     {

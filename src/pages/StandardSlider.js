@@ -1,12 +1,14 @@
 import '../App.css';
-import ImageSlider from '../components/ImageSlider';
-import { SliderData } from '../components/SliderData';
+import ImageSlider from '../components/StandardSlider/ImageSlider';
+import { SliderData } from '../components/StandardSlider/SliderData';
 
 
 const StandardSlider = () => {
     return (
-        <ImageSlider
-            slides={SliderData} />
+        <section className="standard-slider-page">
+            <ImageSlider
+                slides={SliderData} />
+        </section>
     );
 }
 

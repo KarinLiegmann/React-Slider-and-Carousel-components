@@ -1,0 +1,20 @@
+.desktop-header {
+    padding: 1rem;
+}
+
+.desktop-navigation {
+    display: flex; 
+    justify-content: space-around;
+    width: 100vw;
+}
+
+.desktop-navigation a {
+    color: #000;
+    text-decoration: none;
+
+}
+
+.desktop-navigation a.active {
+    color: plum;
+    font-weight: bold;
+}

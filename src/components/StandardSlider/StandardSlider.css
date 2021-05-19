@@ -1,0 +1,91 @@
+  .standard-slider-page {
+      line-height: 1.8;
+  }
+
+  .slider {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .slider a {
+    color: plum;
+    font-weight: bold;
+  }
+
+  .slider p {
+      max-width: 80vw;
+  }
+  
+  .image {
+    max-height: 50vh;
+    max-width: 70vw;
+    border-radius: 10px;
+  }
+  
+  .right-arrow {
+    position: absolute;
+    top: 4%;
+    right: 5%;
+    font-size: 3rem;
+    color: darkgrey;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .left-arrow {
+    position: absolute;
+    top: 4%;
+    left: 5%;
+    font-size: 3rem;
+    color: darkgrey;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none; /*In web browsers, if you double-click on some text it will be selected/highlighted. This property can be used to prevent this.*/
+  }
+  
+  .slide {
+    opacity: 0;
+    transition-duration: 1s ease;
+  }
+  
+  .slide.active {
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.08);
+  }
+
+  @media screen and (min-width: 1024px) {
+      .image {
+          max-height: 70vh;
+          max-width: 80vw;
+      }
+      
+      .left-arrow,
+      .right-arrow {
+        color: lightgray;
+        font-size: 4rem;
+        top: 50%;
+        transition: .5s ease-in-out;          
+      }
+
+      .left-arrow {          
+        left: 5%;  
+    }
+
+    .right-arrow {
+        right: 5%;
+    }
+
+      .left-arrow:hover,
+      .right-arrow:hover {
+          color: darkgrey;
+          transform: scale(1.08);
+      }      
+  }
+  
+  
