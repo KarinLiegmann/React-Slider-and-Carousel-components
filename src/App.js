@@ -1,12 +1,10 @@
-import './App.css';
-import ImageSlider from './components/ImageSlider';
-import { SliderData } from './components/SliderData';
+
+import StandardSlider from './pages/StandardSlider'
 
 
 function App() {
   return (
-    <ImageSlider
-      slides={SliderData} />
+    <StandardSlider />
   );
 }
 
