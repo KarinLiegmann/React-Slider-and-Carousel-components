@@ -23,7 +23,7 @@
     background-image: url(../../assets/filipp-romanovski-SjXi35ffrJg-unsplash.jpg);
     background-size: contain;
     padding: 10rem 0 0;
-    max-width: 35ch; /*'ch'-unit is relative to the width of the 0 character. 'ch' is short for 'character'*/
+    max-width: 32ch; /*'ch'-unit is relative to the width of the 0 character. 'ch' is short for 'character'*/
     border-radius: .5rem;
     overflow: hidden; /*hides the card-body, but careful when using the tab-button, because it is forcing anythig in focus into view*/
     transition: transform 500ms ease-in-out;
@@ -37,12 +37,36 @@
 .card-content {
     --padding: 1.5rem;
     padding: var(--padding);
+    transform: translateY(70%);
+    transition: transform 500ms ease;
     background: linear-gradient(
         hsla(0, 0%, 0%, 0),
         hsla(0, 0%, 0%, .2) 20%,
         hsla(0, 50%, 0%, 1)
         );        
 }
+
+.card:hover .card-content,
+.card:focus-within .card-content {
+    transform: translateY(0);
+    transition-delay: 500ms; /*delay only happens on hover, but not when we remove cursor*/
+}
+
+.card:focus-within .card-content {
+    transition-duration: 0ms; /*cancels out transition-problems when using tab-button, especially apparent in firefox-browser*/
+}
+
+.card-content > *:not(.card-title) {
+    opacity: 0;
+    transition: opacity 500ms linear;
+}
+        
+.card:hover .card-content > *:not(.card-title),
+.card:focus-within .card-content > *:not(.card-title) {
+    opacity: 1;
+    transition-delay: 900ms;
+}      
+            
 
 .card-title {
     position: relative;
@@ -98,7 +122,9 @@
     text-decoration: none;
 }
 
-@media (hover) { /*only works on devices that have a hover-function*/
+/* to only apply all changes to devices with hover-effect
+
+@media (hover) { 
     .card-content {
         transform: translateY(70%);
         transition: transform 500ms ease;
@@ -107,11 +133,11 @@
     .card:hover .card-content,
     .card:focus-within .card-content {
     transform: translateY(0);
-    transition-delay: 500ms; /*delay only happens on hover, but not when we remove cursor*/
+    transition-delay: 500ms;
     }
 
     .card:focus-within .card-content {
-    transition-duration: 0ms; /*cancels out transition-problems when using tab-button, especially apparent in firefox-browser*/
+    transition-duration: 0ms;
     }
 
     .card-content > *:not(.card-title) {
@@ -129,6 +155,8 @@
         transform: scaleX(0);
     }
 }
+
+*/
 
 @media (prefers-reduced-motion: reduce) {
     *,
